@@ -74,7 +74,16 @@ string generateSummary(string &input)
     vector<string> messages;
     split( messages, input, is_any_of(" ") );
 
-    date d(from_string(messages[0]));
+    if ( messages.size() < 3 ) {
+        return string( "The record format is wrong!" );
+    }
+    date d;
+    try{
+        d = from_string(messages[0]);
+    }
+    catch ( std::exception &e) {
+        return e.what();
+    }
 
     int weekdayPoint[] = { 9, 12, 18, 20, 22 },
         weekdayPrice[] = { 0, 30, 50, 80, 60 },
@@ -84,10 +93,24 @@ string generateSummary(string &input)
     int pricePerCourt, levNum;
     int *point, *price;
     vector<string> times;
-    split( times, messages[1], is_any_of(":~") );
-    stopTime = lexical_cast<int>(times[2]);
-    startTime = lexical_cast<int>(times[0]);
+    try {
+        split( times, messages[1], is_any_of(":~") );
+        stopTime = lexical_cast<int>(times[2]);
+        startTime = lexical_cast<int>(times[0]);
+    }
+    catch ( std::exception &e ) {
+        return e.what();
+    }
     duration = stopTime - startTime;
+    if ( duration < 2 || duration >3 ) {
+        return string( "The time of sport is wrong!" );
+    }
+    if ( startTime < 9 ) {
+        return string( "it's too early to start." );
+    }
+    if ( stopTime > 22 ) {
+        return string( "it's too late to stop." );
+    }
     if ( d.day_of_week() == 0 || d.day_of_week() == 6 ) {
         levNum = 4;
         point = weekendPoint;
@@ -110,7 +133,13 @@ string generateSummary(string &input)
     }
 
     stringstream summary;
-    int M = lexical_cast<int>(messages[2]);
+    int M;
+    try {
+        M = lexical_cast<int>(messages[2]);
+    }
+    catch ( std::exception &e ) {
+        return e.what();
+    }
     int T = M / 6, X = M % 6;
     int income = M * 30, payment, profit;
     if ( T == 0 && X < 4 ) {
