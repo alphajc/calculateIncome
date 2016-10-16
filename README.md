@@ -1,21 +1,22 @@
 # calculateIncome
-##编译环境
+>
 <hr>
+##编译环境
 >基本系统：Kali GNU/Linux Rolling 64 位<br/>
 >编译器版本：gcc version 6.1.1 20160802 (Debian 6.1.1-11)<br/>
 >boost版本：1.61.0<br/>
 >ide: atom v1.9.9 for Linux<br/>
+<hr>
 <br/>
 ##编译执行
-<hr>
 >编译：<bold>g++ solution.cc -lboost_system -lboost_date_time</bold><br/>
 >执行：<bold>./a.out</bold><br/>
-##输入输出
 <hr>
+##输入输出
 >输入：input/input.csv<br/>
 >输出：output/output.csv & 屏幕<br/>
-<br/>
 <hr>
+<br/>
 ##测试用例
 ###题目给定用例
 <hr>
