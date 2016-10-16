@@ -102,8 +102,11 @@ string generateSummary(string &input)
         return e.what();
     }
     duration = stopTime - startTime;
+    if ( times.size() != 4 ) {
+        return string( "The duration format is incorrect!" );
+    }
     if ( duration < 2 || duration >3 ) {
-        return string( "The time of sport is wrong!" );
+        return string( "The last time of sport is incorrect!" );
     }
     if ( startTime < 9 ) {
         return string( "it's too early to start." );
@@ -139,6 +142,9 @@ string generateSummary(string &input)
     }
     catch ( std::exception &e ) {
         return e.what();
+    }
+    if ( M < 0 ) {
+        return string( "The number of people is negative." );
     }
     int T = M / 6, X = M % 6;
     int income = M * 30, payment, profit;
