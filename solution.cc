@@ -160,8 +160,13 @@ string generateSummary(string &input)
 
     totalIncome += income;
     totalPayment += payment;
+    profit = income - payment;
     summary << messages[0] << " " << messages[1] << " +" << income
-        << " -" << payment << " " << income - payment;
+        << " -" << payment << " ";
+    if ( profit > 0 ) {
+        summary << "+";
+    }
+    summary << profit;
 
     return summary.str();
 }
