@@ -1,18 +1,18 @@
 # calculateIncome
 
 ## 编译环境
-> 基本系统：Kali GNU/Linux Rolling 64 位
-> 编译器版本：gcc version 6.1.1 20160802 (Debian 6.1.1-11)
-> boost版本：1.61.0
-> ide: atom v1.9.9 for Linux
+- 基本系统：Kali GNU/Linux Rolling 64 位
+- 编译器版本：gcc version 6.1.1 20160802 (Debian 6.1.1-11)
+- boost版本：1.61.0
+- ide: atom v1.9.9 for Linux
 
 ## 编译执行
-> 编译：<bold>g++ solution.cc -lboost_system -lboost_date_time</bold>
-> 执行：<bold>./a.out</bold>
+- 编译：<bold>g++ solution.cc -lboost_system -lboost_date_time</bold>
+- 执行：<bold>./a.out</bold>
 
 ## 输入输出
-> 输入：input/input.csv
-> 输出：output/output.csv & 屏幕
+- 输入：input/input.csv
+- 输出：output/output.csv & 屏幕
 
 
 ## 测试用例
